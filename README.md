@@ -42,43 +42,43 @@ $ java gui/Main
 ## Features
 * **Create basic object mode**
     * Create a UML basic object
-        * click on a basic object button (Class Object, Use Case Object)
+        * click on a _Basic object_ button
         * click on the canvas to create a basic object
 * **Create line mode**
     * Create a UML connection line
-        * click on a line button (Association Line, Generalization Line, Composition Line)
+        * click on a _Line_ button
         * press one basic object
         * drag continuously to another basic object and release
         * create a connection line from the first basic object to the second one
 * **Select mode**
     * Select a single object
-        * click on the select button
+        * click on _Select_ button
         * click on a single object
     * Select a group of objects
-        * click on the select button
+        * click on _Select_ button
         * press a point that contains no objects
         * drag continuously to another point and release
         * the selected area where contains specific objects
     * Unselect a single object or a group of objects
-        * click on the select button
+        * click on _Select_ button
         * click on a place where contains no objects
     * Group objects into a composite object
-        * click on the select button
+        * click on _Select_ button
         * select a group of objects
-        * click on Group Objects in the Edit menu
-    * Ungroup a composite object into objects
-        * click on the select button
+        * click on _Group objects_ in the Edit menu
+    * Ungroup a composite object back to objects
+        * click on _Select_ button
         * select a composite object
-        * click on Ungroup Object in the Edit menu
+        * click on _Ungroup objects_ in the Edit menu
     * Move object
-        * click on the select button
+        * click on _Select_ button
         * press one object or a group of objects
         * drag continuously to another point and release on where the object you want object/objects to be
         * automatically remove all connection lines which connected with the object
     * Change object name
-        * click on the select button
+        * click on _Select_ button
         * select a single basic object
-        * click on the change object name in the Edit menu
+        * click on the _Change object name_ in the Edit menu
         * enter a new name for the basic object
 
 ## Class Diagram
