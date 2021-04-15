@@ -12,13 +12,13 @@ A UML class diagram can be used to express the structure of a system by showing 
 ![Demo Example](image/demoExample.png)
 A UML Editor is in the window which is composed of a **menu bar** on the top, a list of **buttons** on the left, and a **canvas** on the rest of the window.
 
-* Button
-- Six buttons from top to bottom is select, association line, generalization line, composition line, class object, and use case object
-* Menu bar
-- Other features in the Edit menu included group objects, ungroup object and change the object’s name
-* Canvas
-- A place for drawing objects and lines.
-* Other definition 
+*   Button
+Six buttons from top to bottom is select, association line, generalization line, composition line, class object, and use case object
+*   Menu bar
+Other features in the Edit menu included group objects, ungroup object and change the object’s name
+*   Canvas
+A place for drawing objects and lines.
+*   Other definition 
     * basic object: class object or use case object
     * object: composite object or basic object
     * composite object: grouped objects
