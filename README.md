@@ -11,7 +11,6 @@ A UML class diagram can be used to express the structure of a system by showing 
 ## Introduction
 ![Demo Example](image/demoExample.png)
 A UML Editor is in the window which is composed of a **menu bar** on the top, a list of **buttons** on the left, and a **canvas** on the rest of the window.
-
 *   Button
 Six buttons from top to bottom is select, association line, generalization line, composition line, class object, and use case object
 *   Menu bar
