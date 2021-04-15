@@ -9,7 +9,7 @@ A UML class diagram can be used to express the structure of a system by showing 
 * [Class Diagram](#class-diagram)
 
 ## Introduction
-![Demo Example](./demo-example.png)
+![Demo Example](image/Demo-Example.png)
 A UML Editor is in the window which is composed of a menu bar on the top, a list of buttons on the left, and a canvas on the rest of the window.
 
 * Button
@@ -85,4 +85,4 @@ $ java gui/Main
         * enter a new name for the basic object
 
 ## Class Diagram
-![Class Diagram](./class-diagram.png)
+![Class Diagram](image/Class-Diagram.png)
