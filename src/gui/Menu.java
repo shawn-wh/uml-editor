@@ -12,11 +12,13 @@ import java.awt.event.ActionListener;
 import java.lang.String;
 
 public class Menu extends Window {
+    private Canvas canvas;
     protected JMenuBar menubar = new JMenuBar();
     private JMenu file = new JMenu("File");
     private JMenu edit = new JMenu("Edit");
 
-    public Menu(Canvas canvas) {
+    public Menu() {
+        canvas = Canvas.getInstance();
         JMenuItem changeName = new JMenuItem("Change object name");
         JMenuItem groupObject = new JMenuItem("Group objects");
         JMenuItem unGroupObject = new JMenuItem("Ungroup objects");

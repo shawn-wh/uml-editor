@@ -13,12 +13,20 @@ import java.util.Collections;
 import java.util.List;
 
 public class Canvas extends JPanel {
+	private static Canvas instance = new Canvas(); // for singleton
 	public static int depthCounter = 99;
 	public static List<ShapeObj> shapeList = new ArrayList<>();
 	public static List<LineObj> lineList = new ArrayList<>();
 	public static List<ShapeObj> selectedList = new ArrayList<>();
 	private MouseAdapter listener = null;
 	protected Mode currentMode;
+
+	/* Singleton design pattern */
+	private Canvas() {} // private constructor
+
+	public static Canvas getInstance() {
+		return instance;
+	}
 
 	/* Remove the past listener and get into the current listener */
     public void setCurrentMode() {

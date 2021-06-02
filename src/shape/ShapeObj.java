@@ -7,7 +7,7 @@ import java.awt.Point;
 import java.awt.geom.Path2D;
 import java.awt.geom.Rectangle2D;
 
-public abstract class ShapeObj extends gui.Canvas implements Comparable<ShapeObj> {
+public abstract class ShapeObj implements Comparable<ShapeObj> {
     protected static final int THICKNESS = 2;
     public int depth;
     // public boolean isComposite = false;

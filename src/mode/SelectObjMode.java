@@ -13,9 +13,9 @@ public class SelectObjMode extends Mode {
     private Point selectStartPoint;
     private Point selectEndPoint;
 
-    public SelectObjMode(String modeName, Canvas canvas) {
+    public SelectObjMode(String modeName) {
         this.modeName = modeName;
-        this.canvas = canvas;
+        canvas = Canvas.getInstance();
     }
 
     @Override

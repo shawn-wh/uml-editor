@@ -19,14 +19,14 @@ public class ButtonPanel extends Window {
 	private int previousBtnIndex;
 	protected JPanel buttonPanel = new JPanel(new GridLayout(6,1));
 
-	public ButtonPanel(Canvas canvas) {
-		this.canvas = canvas;
-		new ButtonInit("icon/icon1.png", new SelectObjMode("select", canvas));
-		new ButtonInit("icon/icon2.png", new CreateLineMode("assocLine", canvas));
-		new ButtonInit("icon/icon3.png", new CreateLineMode("genLine", canvas));
-		new ButtonInit("icon/icon4.png", new CreateLineMode("compLine", canvas));
-		new ButtonInit("icon/icon5.png", new CreateBasicObjMode("class", canvas));
-		new ButtonInit("icon/icon6.png", new CreateBasicObjMode("useCase", canvas));
+	public ButtonPanel() {
+		canvas = Canvas.getInstance();
+		new ButtonInit("icon/icon1.png", new SelectObjMode("select"));
+		new ButtonInit("icon/icon2.png", new CreateLineMode("assocLine"));
+		new ButtonInit("icon/icon3.png", new CreateLineMode("genLine"));
+		new ButtonInit("icon/icon4.png", new CreateLineMode("compLine"));
+		new ButtonInit("icon/icon5.png", new CreateBasicObjMode("class"));
+		new ButtonInit("icon/icon6.png", new CreateBasicObjMode("useCase"));
 	}
 
 	private class ButtonInit extends JButton {

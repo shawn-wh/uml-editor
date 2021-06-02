@@ -9,9 +9,9 @@ import java.awt.event.MouseEvent;
 public class CreateBasicObjMode extends Mode {
 	private Canvas canvas;
 
-	public CreateBasicObjMode(String modeName, Canvas canvas) {
+	public CreateBasicObjMode(String modeName) {
 		this.modeName = modeName;
-		this.canvas = canvas;
+		canvas = Canvas.getInstance();
 	}
 
 	@Override

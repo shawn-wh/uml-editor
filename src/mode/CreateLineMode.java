@@ -19,9 +19,9 @@ public class CreateLineMode extends Mode {
 	public int endPortPosition;
 	private Canvas canvas;
 
-	public CreateLineMode (String modeName, Canvas canvas) {
+	public CreateLineMode (String modeName) {
 		this.modeName = modeName;
-		this.canvas = canvas;
+		canvas = Canvas.getInstance();
 	}
 
 	@Override
