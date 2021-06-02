@@ -25,7 +25,7 @@ public abstract class BasicObj extends ShapeObj {
 	public Point sePoint = new Point();
 	private Point swPoint = new Point();
 	public ArrayList<Port> portList = new ArrayList<>(4);
-	public ArrayList<LineObj> relatedLineList = new ArrayList<>();
+	// public ArrayList<LineObj> relatedLineList = new ArrayList<>();
 
 	public BasicObj(Point p, int width, int height) {
 		this.width = width;
@@ -77,10 +77,11 @@ public abstract class BasicObj extends ShapeObj {
 		return sectorArea;
 	}
 
-	public void showPort(Graphics2D g2d){
-		for (Port port : portList){
+	public void showPort(Graphics2D g2d) {
+		for (Port port : portList) {
+			int size = port.portSize;
 			g2d.setColor(Color.BLACK);
-			g2d.fillRect(port.location.x - 3, port.location.y - 3, port.portSize, port.portSize);
+			g2d.fillRect(port.location.x - size / 2, port.location.y - size / 2, size, size);
 		}
 	}
 
@@ -89,10 +90,6 @@ public abstract class BasicObj extends ShapeObj {
 		super.releasedCheck(selectRegion, shapeobj, selectStartPoint, selectEndPoint);
 		if (shapeobj.moved) {
 			shapeobj.moveReset(selectStartPoint, selectEndPoint);
-			BasicObj basicObj = (BasicObj) shapeobj;
-			for (LineObj lineObj : basicObj.relatedLineList) {
-				Canvas.lineList.remove(lineObj);
-			}
 			shapeobj.moved = false;
 		}
 	}

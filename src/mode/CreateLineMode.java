@@ -50,9 +50,6 @@ public class CreateLineMode extends Mode {
 				break;
 			default:
 		}
-		// relatedLineList store line objects which would be deleted after moving the object
-		startObj.relatedLineList.add(Canvas.lineList.get(Canvas.lineList.size() - 1));
-		endObj.relatedLineList.add(Canvas.lineList.get(Canvas.lineList.size() - 1));
 		canvas.repaint();
 	}
 

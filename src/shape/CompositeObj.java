@@ -60,15 +60,7 @@ public class CompositeObj extends ShapeObj {
         minX = minX + (selectEndPoint.x - selectStartPoint.x);
         minY = minY + (selectEndPoint.y - selectStartPoint.y);
         for (ShapeObj shape : compositeList) {
-            if (shape instanceof CompositeObj) {
-                shape.moveReset(selectStartPoint, selectEndPoint);
-            } else {
-                BasicObj basicObj = (BasicObj) shape;
-                basicObj.moveReset(selectStartPoint, selectEndPoint);
-                for (LineObj lineObj : basicObj.relatedLineList) {
-                    Canvas.lineList.remove(lineObj);
-                }
-            }
+            shape.moveReset(selectStartPoint, selectEndPoint);
             objectRegion = new Rectangle2D.Double(minX, minY, compObjSideLength, compObjSideLength);
         }
     }

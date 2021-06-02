@@ -15,7 +15,6 @@ public abstract class LineObj extends ShapeObj {
     protected Point arrowPoint1 = new Point();
     protected Point arrowPoint2 = new Point();
     protected Point arrowPoint3 = new Point();
-    protected Path2D icon = new Path2D.Double();
 
     protected LineObj(Port startPort, Port endPort) {
         this.startPort = startPort;
@@ -33,10 +32,11 @@ public abstract class LineObj extends ShapeObj {
     }
 
     protected void drawIcon(Graphics2D g2d) {
+        Path2D icon = new Path2D.Double();
         g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(THICKNESS));
         setArrow();
-        setLineIcon();
+        setLineIcon(icon);
         g2d.draw(icon);
     }
 
@@ -73,6 +73,6 @@ public abstract class LineObj extends ShapeObj {
     @Override
     public void moveReset(Point selectStartPoint, Point selectEndPoint) {}
 
-    protected abstract void setLineIcon();
+    protected abstract void setLineIcon(Path2D icon);
 
 }

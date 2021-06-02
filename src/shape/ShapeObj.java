@@ -10,7 +10,6 @@ import java.awt.geom.Rectangle2D;
 public abstract class ShapeObj implements Comparable<ShapeObj> {
     protected static final int THICKNESS = 2;
     public int depth;
-    // public boolean isComposite = false;
     public boolean selected = false;
     public boolean moved = false;
     public Rectangle2D objectRegion;
@@ -21,7 +20,6 @@ public abstract class ShapeObj implements Comparable<ShapeObj> {
 
     public void pressedCheck(Point selectStartPoint, ShapeObj shapeobj) {
         selectedInit(shapeobj);
-
         if (Canvas.selectedList.contains(shapeobj))
             Canvas.selectedList.remove(shapeobj);
         if (shapeobj.objectRegion.contains(selectStartPoint)) {
