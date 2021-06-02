@@ -1,7 +1,2 @@
 .DS_Store
 
-# intelliJ IDEA
-.iml
-.xml
-.project
-.classpath
