@@ -1,22 +1,22 @@
 package mode;
 
 import gui.Canvas;
-import shape.*;
+import shape.Port;
+import shape.BasicObj;
+import shape.ShapeObj;
 import shape.lineobj.*;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Path2D;
 import java.util.Collections;
 
 public class CreateLineMode extends Mode {
 	public Point startPoint;
 	public Point endPoint;
-	public Point startPort;
-	public Point endPort;
+	public Port startPort;
+	public Port endPort;
 	public BasicObj startObj;
 	public BasicObj endObj;
-	public int endPortPosition;
 	private Canvas canvas;
 
 	public CreateLineMode (String modeName) {
@@ -40,13 +40,13 @@ public class CreateLineMode extends Mode {
 
 		switch(modeName) {
 			case "assocLine":
-				Canvas.lineList.add(new AssoLineObj(startPort, endPort, endPortPosition));
+				Canvas.lineList.add(new AssoLineObj(startPort, endPort));
 				break;
 			case "genLine":
-				Canvas.lineList.add(new GenLineObj(startPort, endPort, endPortPosition));
+				Canvas.lineList.add(new GenLineObj(startPort, endPort));
 				break;
 			case "compLine":
-				Canvas.lineList.add(new CompLineObj(startPort, endPort, endPortPosition));
+				Canvas.lineList.add(new CompLineObj(startPort, endPort));
 				break;
 			default:
 		}
@@ -63,7 +63,6 @@ public class CreateLineMode extends Mode {
 		endPort = null;
 		startObj = null;
 		endObj = null;
-		endPortPosition = -1;
 	}
 
 	private void setStartPort() {
@@ -74,10 +73,9 @@ public class CreateLineMode extends Mode {
 		for (ShapeObj shapeObj : Canvas.shapeList) {
 			if (shapeObj instanceof BasicObj && notFound) { // CreateLineMode can not use on composite objects
 				BasicObj basicobj = (BasicObj) shapeObj;
-				for(Path2D portArea : basicobj.portAreaList){
-					if (portArea.contains(startPoint)){
-						int portIndex = basicobj.portAreaList.indexOf(portArea);
-						startPort  = basicobj.portList.get(portIndex);
+				for(Port port : basicobj.portList){
+					if (port.portArea.contains(startPoint)){
+						startPort  = port;
 						startObj = basicobj;
 						notFound = false;
 						break;
@@ -94,12 +92,10 @@ public class CreateLineMode extends Mode {
 		for (ShapeObj shapeobj : Canvas.shapeList){
 			if (shapeobj instanceof BasicObj  && notFound) {
 				BasicObj basicobj = (BasicObj) shapeobj;
-				for (Path2D portArea : basicobj.portAreaList) {
-					if (portArea.contains(endPoint)) {
-						int portIndex = basicobj.portAreaList.indexOf(portArea);
-						endPort = basicobj.portList.get(portIndex);
+				for (Port port : basicobj.portList) {
+					if (port.portArea.contains(endPoint)) {
+						endPort = port;
 						endObj = basicobj;
-						endPortPosition = portIndex;
 						notFound = false;
 						break;
 					}

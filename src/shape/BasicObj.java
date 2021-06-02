@@ -24,8 +24,7 @@ public abstract class BasicObj extends ShapeObj {
 	private Point nePoint = new Point();
 	public Point sePoint = new Point();
 	private Point swPoint = new Point();
-	public ArrayList<Point> portList = new ArrayList<>(4);
-	public ArrayList<Path2D> portAreaList = new ArrayList<>(4);
+	public ArrayList<Port> portList = new ArrayList<>(4);
 	public ArrayList<LineObj> relatedLineList = new ArrayList<>();
 
 	public BasicObj(Point p, int width, int height) {
@@ -35,8 +34,7 @@ public abstract class BasicObj extends ShapeObj {
 		Canvas.depthCounter--;
 		objectRegion = new Rectangle2D.Double(p.x, p.y, width, height);
 		setVertex(p, width, height);
-		setPortPoint(p, width, height);
-		setAllPortArea();
+		setPort(p, width, height);
 	}
 
 	public void setVertex (Point p, int width, int height) {
@@ -52,42 +50,37 @@ public abstract class BasicObj extends ShapeObj {
 		swPoint.y = p.y + height;
 	}
 
-	public void setPortPoint (Point p, int width, int height) {
+	public void setPort (Point p, int width, int height) {
 		nPoint.x = p.x + width / 2;
-		nPoint.y = p.y ;
-		portList.add(nPoint);
+		nPoint.y = p.y;
+		portList.add(new Port(nPoint, "North", setPortArea(nwPoint, center, nePoint)));
+
 		ePoint.x = p.x + width;
 		ePoint.y = p.y + height / 2;
-		portList.add(ePoint);
+		portList.add(new Port(ePoint, "East", setPortArea(nePoint, center, sePoint)));
+
 		sPoint.x = p.x + width / 2;
 		sPoint.y = p.y + height;
-		portList.add(sPoint);
+		portList.add(new Port(sPoint, "South", setPortArea(sePoint, center, swPoint)));
+
 		wPoint.x = p.x;
 		wPoint.y = p.y + height / 2;
-		portList.add(wPoint);
+		portList.add(new Port(wPoint, "West", setPortArea(swPoint, center, nwPoint)));
 	}
 
-	public void setAllPortArea() {
-		setPortArea(nwPoint, center, nePoint); // North
-		setPortArea(nePoint, center, sePoint); // East
-		setPortArea(sePoint, center, swPoint); // South
-		setPortArea(swPoint, center, nwPoint); // West
-	}
-
-	public void setPortArea(Point p1, Point p2, Point p3 ) {
+	public Path2D setPortArea(Point p1, Point p2, Point p3) {
 		Path2D sectorArea = new Path2D.Double();
 		sectorArea.moveTo(p1.x, p1.y);
 		sectorArea.lineTo(p2.x, p2.y);
 		sectorArea.lineTo(p3.x, p3.y);
 		sectorArea.closePath();
-		portAreaList.add(sectorArea);
+		return sectorArea;
 	}
 
 	public void showPort(Graphics2D g2d){
-		int portSize = 6;
-		for (Point port : portList){
+		for (Port port : portList){
 			g2d.setColor(Color.BLACK);
-			g2d.fillRect(port.x - 3, port.y - 3, portSize, portSize);
+			g2d.fillRect(port.location.x - 3, port.location.y - 3, port.portSize, port.portSize);
 		}
 	}
 
@@ -110,8 +103,7 @@ public abstract class BasicObj extends ShapeObj {
 		nwPoint.y = nwPoint.y + (selectEndPoint.y - selectStartPoint.y);
 		objectRegion = new Rectangle2D.Double(nwPoint.x, nwPoint.y, width, height);
 		setVertex(nwPoint, width, height);
-		setPortPoint(nwPoint, width, height);
-		setAllPortArea();
+		setPort(nwPoint, width, height);
 	}
 
 	@Override
