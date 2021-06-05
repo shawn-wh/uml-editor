@@ -13,7 +13,7 @@ import java.lang.String;
 import java.lang.System;
 import java.util.ArrayList;
 
-public class ButtonPanel extends Window {
+public class ButtonPanel {
 	private Canvas canvas;
 	private ArrayList<JButton> buttonList = new ArrayList<>();
 	private int previousBtnIndex;

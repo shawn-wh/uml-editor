@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.String;
 
-public class Menu extends Window {
+public class Menu {
     private Canvas canvas;
     protected JMenuBar menubar = new JMenuBar();
     private JMenu file = new JMenu("File");

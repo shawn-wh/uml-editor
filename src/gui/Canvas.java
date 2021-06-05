@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Canvas extends JPanel {
+public class Canvas extends JPanel{
 	private static Canvas instance = new Canvas(); // for singleton
 	public static int depthCounter = 99;
 	public static List<ShapeObj> shapeList = new ArrayList<>();
