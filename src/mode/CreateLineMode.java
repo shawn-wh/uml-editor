@@ -66,7 +66,7 @@ public class CreateLineMode extends Mode {
 		boolean notFound = true;
 		// when there is more than one object in the same place,
 		// drawing a line on the object with a minimum depth value
-		Collections.sort(Canvas.shapeList);
+		Collections.sort(Canvas.shapeList); 
 		for (ShapeObj shapeObj : Canvas.shapeList) {
 			if (shapeObj instanceof BasicObj && notFound) { // CreateLineMode can not use on composite objects
 				BasicObj basicobj = (BasicObj) shapeObj;

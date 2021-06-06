@@ -40,11 +40,11 @@ public class Canvas extends JPanel{
     	super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
 
-		Collections.sort(shapeList); // sort the List by depth before draw shape objects
+		Collections.sort(shapeList, Collections.reverseOrder()); // sort the List by depth before draw shape objects
 		for (ShapeObj shape : shapeList) {
 			shape.draw(g2d);
 		}
-		Collections.sort(lineList);
+		Collections.sort(lineList, Collections.reverseOrder());
 		for (LineObj line : lineList) {
 			line.draw(g2d);
 		}

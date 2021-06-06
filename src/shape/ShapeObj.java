@@ -15,7 +15,7 @@ public abstract class ShapeObj implements Comparable<ShapeObj> {
     public Rectangle2D objectRegion;
 
     public int compareTo(ShapeObj shape) {
-        return shape.depth -  this.depth; // sort from big to small
+        return this.depth - shape.depth; // sort from small to big
     }
 
     public void pressedCheck(Point selectStartPoint, ShapeObj shapeobj) {
